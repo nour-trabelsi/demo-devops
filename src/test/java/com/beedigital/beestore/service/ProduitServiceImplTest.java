@@ -96,4 +96,15 @@ class ProduitServiceImplTest {
 
         assertThat(resultat).hasSize(2);
     }
+
+    @Test
+    @DisplayName("getProduitsEnRuptureDeStock() ne doit retourner que les produits à stock 0")
+    void getProduitsEnRuptureDeStock_doitFiltrerParStock() {
+        when(produitRepository.findByStock(0)).thenReturn(List.of(
+                Produit.builder().id(1L).nom("Souris").stock(0).build()
+        ));
+        List<ProduitResponseDTO> resultat = produitService.getProduitsEnRuptureDeStock();
+        assertThat(resultat).hasSize(1);
+        assertThat(resultat.get(0).getStock()).isZero();
+    }
 }
