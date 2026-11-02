@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @Transactional
-class ProduitControllerIT {
+class ProduitControllerTest {
 
     private static final String BASE_URL = "/api/v1/produits";
 
