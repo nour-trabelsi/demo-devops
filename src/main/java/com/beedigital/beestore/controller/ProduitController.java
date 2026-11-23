@@ -99,4 +99,9 @@ public class ProduitController {
         return ResponseEntity.ok(produitService.getTousProduits());
     }
 
+    @GetMapping("/rupture-stock")
+    @Operation(summary = "Récupérer les produits en rupture de stock")
+    public ResponseEntity<List<ProduitResponseDTO>> getProduitsEnRuptureDeStock() {
+        return ResponseEntity.ok(produitService.getProduitsEnRuptureDeStock());
+    }
 }
